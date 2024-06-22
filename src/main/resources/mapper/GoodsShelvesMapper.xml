@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.spring.project.mapper.GoodsShelvesMapper">
+    <resultMap id="BaseResultMap" type="com.exam.spring.project.entity.GoodsShelves">
+        <id column="goods_shelves_no" property="goodsShelvesNo"/>
+        <result column="goods_shelves_type" property="goodsShelvesType"/>
+        <result column="dcl_total_price" property="dclTotalPrice"/>
+        <result column="contact_name" property="contactName"/>
+        <result column="contact_number" property="contactNumber"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <select id="getMaxSerialNumberForDate" resultType="integer">
+        SELECT MAX(CAST(SUBSTRING(goods_shelves_no, 9, 4) AS UNSIGNED))
+
+        FROM goods_shelves WHERE SUBSTRING(goods_shelves_no, 1, 8) = #{date}
+    </select>
+
+
+</mapper>

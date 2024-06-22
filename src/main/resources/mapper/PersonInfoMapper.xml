@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.spring.project.mapper.PersonInfoMapper">
+    <resultMap id="BaseResultMap" type="com.exam.spring.project.entity.PersonInfo">
+        <id column="person_id" property="personId"/>
+        <result column="type" property="type"/>
+        <result column="email" property="email"/>
+    </resultMap>
+    <select id="getAll" resultMap="BaseResultMap">
+        select * from person_info;
+    </select>
+
+</mapper>

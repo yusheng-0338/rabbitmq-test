@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.spring.project.mapper.DetailShelvesMapper">
+    <resultMap id="BaseResultMap" type="com.exam.spring.project.entity.DetailShelves">
+        <id column="id" property="id"/>
+        <result column="material_no" property="materialNo"/>
+        <result column="goods_shelves_no" property="goodsShelvesNo"/>
+    </resultMap>
+
+</mapper>

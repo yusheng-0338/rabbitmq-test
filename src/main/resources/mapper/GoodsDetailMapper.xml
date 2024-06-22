@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.spring.project.mapper.GoodsDetailMapper">
+    <resultMap id="BaseResultMap" type="com.exam.spring.project.entity.GoodsDetail">
+        <id column="material_no" property="materialNo"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="price" property="price"/>
+        <result column="quantity" property="quantity"/>
+        <result column="serial_no" property="serialNo"/>
+    </resultMap>
+
+</mapper>

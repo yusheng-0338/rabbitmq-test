@@ -1,0 +1,51 @@
+server:
+  port: 9900
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo001?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  ###redis配置
+#  redis:
+#    host: localhost
+#    password: 123456
+#    port: 6379
+#    database: 1
+#    jedis:
+#      pool:
+#        max-active: 8
+#        max-wait: -1
+#        max-idle: 8
+#        min-idle: 0
+#    timeout: 5000
+  ###rabbitmq
+  rabbitmq:
+    host: 192.168.200.130
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    connection-timeout: 1s #设置MQ链接超时时间
+    template:
+      retry:
+        enabled: true #开启超时重试机制
+        initial-interval: 1000ms #失败后的初始等待时间
+        multiplier: 1 # 失败后下次的等待时长倍数,下次等待时长
+        max-attempts: 3 #最大重试次数
+
+    publisher-confirm-type: correlated # 开启MQ异步回调机制,返回回执信息 ack nack
+    publisher-returns: true # 开启 return机制
+
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.exam.spring.*.entity
+logging:
+  level:
+    com.exam: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+
+app:
+  value: "5"
