@@ -10,10 +10,7 @@ import com.exam.spring.project.service.DetailShelvesService;
 import com.exam.spring.project.service.GoodsDetailService;
 import com.exam.spring.project.service.GoodsShelvesService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -90,6 +87,12 @@ public class DemoController {
         //2.用户购买成功后,需要判断库存数量是否小于指定额度,若小于指定额度,需要异步去调用邮件分发的接口通知店长补货,
         // 考虑到客流量大,可以采用mq进行异步,解耦,削峰的方式进行分发
         return true;
+    }
+
+
+    @GetMapping ("/login/{username}/{password}")
+    public String login(@PathVariable String username, @PathVariable String password){
+        return demoService.login(username, password);
     }
 
 

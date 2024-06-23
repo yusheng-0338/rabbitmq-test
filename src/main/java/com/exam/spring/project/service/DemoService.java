@@ -11,4 +11,6 @@ public interface DemoService {
      */
     public List<PersonInfo> getAll();
 
+    String login(String username, String password);
+
 }
